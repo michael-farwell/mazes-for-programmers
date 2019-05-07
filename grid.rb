@@ -46,4 +46,44 @@ class Grid
   def size
     @rows * @columns
   end
+
+  def each_row
+    @grid.each do |row|
+      yield row
+    end
+  end
+
+  def each_cell
+    each_row do |row|
+      row.each do |cell|
+        yield cell if cell
+      end
+    end
+  end
+
+  def to_s
+    output = '+' + '---+' * columns + "\n"
+
+    each_row do |row|
+      top = '|'
+      bottom = '+'
+
+      row.each do |cell|
+        cell = Cell.new(-1, -1) unless cell
+
+        body = '   '
+        east_boundary = (cell.linked?(cell.east) ? ' ' : '|')
+        top << body << east_boundary
+
+        south_boundary = (cell.linked?(cell.south) ? '   ' : '---')
+        corner = '+'
+        bottom << south_boundary << corner
+      end
+
+      output << top << "\n"
+      output << bottom << "\n"
+    end
+
+    output
+  end
 end
