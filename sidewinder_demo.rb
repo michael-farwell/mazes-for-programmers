@@ -11,4 +11,4 @@ puts grid
 
 # PNG drawing
 img = grid.to_png
-img.save 'maze.png'
+img.save 'images/maze.png'
