@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'mask'
 require 'masked_grid'
 require 'recursive_backtracker'

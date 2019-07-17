@@ -3,8 +3,9 @@ require 'binary_tree'
 
 grid = DistanceGrid.new(5, 5)
 BinaryTree.on(grid)
+grid.braid(0.5)
 
-start = grid[0, 0]
+start     = grid[0, 0]
 distances = start.distances
 
 grid.distances = distances

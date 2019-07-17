@@ -3,13 +3,14 @@ require 'binary_tree'
 
 grid = DistanceGrid.new(5, 5)
 BinaryTree.on(grid)
+grid.braid(0.5)
 
 start = grid[0, 0]
 
-distances = start.distances
+distances           = start.distances
 new_start, distance = distances.max
 
-new_distances = new_start.distances
+new_distances  = new_start.distances
 goal, distance = new_distances.max
 
 grid.distances = new_distances.path_to(goal)

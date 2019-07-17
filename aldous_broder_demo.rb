@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'grid'
 require 'aldous_broder'
 
